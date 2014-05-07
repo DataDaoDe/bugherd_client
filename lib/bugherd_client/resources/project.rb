@@ -49,6 +49,7 @@ module BugherdClient
 
       # 
       # Add an existing guest to a project, or invite someone by email address.
+      # required: project_id
       # attributes: user_id, email
       # API: 2
       def add_guest(project_id, attributes={})
@@ -58,9 +59,11 @@ module BugherdClient
 
       # 
       # Add an existing guest to a project, or invite someone by email address.
+      # required: project_id
       # attributes: user_id
       # API: 2
       def add_member(project_id, attributes={})
+        raise BugherdClient::Errors::UnsupportedMethod, :v2 unless self.options[:api_version].eql?(2)
         raw_response = post_request("projects/#{project_id}/add_member", attributes)
         parse_response(raw_response)
       end
