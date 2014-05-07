@@ -15,7 +15,7 @@ module BugherdClient
       # API: 2
       def members
         raise BugherdClient::Errors::UnsupportedMethod, :v2 unless self.options[:api_version].eql?(2)
-        raw_response = self.connection['users/members'].get
+        raw_response = get_request('users/members')
         parse_response(raw_response, :users)
       end
 
@@ -24,7 +24,7 @@ module BugherdClient
       # API: 2
       def guests
         raise BugherdClient::Errors::UnsupportedMethod, :v2 unless self.options[:api_version].eql?(2)
-        raw_response = self.connection['users/guests'].get
+        raw_response = get_request('users/guests')
         parse_response(raw_response, :users)
       end
 

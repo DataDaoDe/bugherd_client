@@ -59,12 +59,10 @@ module BugherdClient
     # 
     # Resources
     # 
-    def organizations
-      resource(:organization)
-    end
-
-    def users
-      resource(:user)
+    [:organization, :user, :project, :task, :comment].each do |resource_name|
+      define_method("#{resource_name}s") do
+        resource("#{resource_name}")
+      end
     end
 
   end

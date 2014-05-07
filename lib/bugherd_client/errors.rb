@@ -9,7 +9,13 @@ module BugherdClient
 
     class UnsupportedMethod < StandardError
       def initialize(api_version="")
-        super("Method unsupported in API version #{api_version}")
+        super("Method supported in API version #{api_version}")
+      end
+    end
+
+    class UnsupportedAttribute < StandardError
+      def initialize(api_version="", attrs=[])
+        super("Attributes (#{attrs.join(',')}) supported in #{api_version}")
       end
     end
   end
