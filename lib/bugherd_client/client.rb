@@ -3,6 +3,8 @@ require 'logger'
 module BugherdClient
   class Client
 
+    VALID_API_VERSIONS = [1,2].freeze
+
     DEFAULT_OPTIONS = {
       base_url: 'https://www.bugherd.com',
       api_version: 2,
@@ -41,6 +43,9 @@ module BugherdClient
       if !@options[:api_key] && !(@options[:username] && @options[:password])
         raise BugherdClient::Errors::InvalidOption, "api_key or username and password is required"
       end
+      unless VALID_API_VERSIONS.include?(@options[:api_version])
+        raise BugherdClient::Errors::InvalidOption, "api_version must be #{VALID_API_VERSIONS.join(',')}"
+      end
     end
 
     def build_credentials
@@ -52,7 +57,8 @@ module BugherdClient
     end
 
     def resource(name, opts={})
-      klass = Object.const_get("BugherdClient::Resources::#{name.to_s.classify}")
+      version = self.options[:api_version]
+      klass = Object.const_get("BugherdClient::Resources::V#{version}::#{name.to_s.classify}")
       klass.new(self.connection, self.options)
     end
 
@@ -60,7 +66,7 @@ module BugherdClient
     # Resources
     # 
     [:organization, :user, :project, :task, :comment].each do |resource_name|
-      define_method("#{resource_name}s") do
+      define_method("#{resource_name.to_s.pluralize}") do
         resource("#{resource_name}")
       end
     end
