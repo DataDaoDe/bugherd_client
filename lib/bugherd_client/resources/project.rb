@@ -4,7 +4,7 @@ module BugherdClient
 
       #
       # Get more detail of your account.
-      # API: 1,2
+      # 
       def all
         raw_response = get_request('projects')
         parse_response(raw_response, :projects)
@@ -12,7 +12,7 @@ module BugherdClient
 
       #
       # Show details for a specific project
-      # API: 1,2
+      # 
       def find(project_id)
         raw_response = get_request("projects/#{project_id}")
         parse_response(raw_response, :project)
@@ -21,12 +21,8 @@ module BugherdClient
       #
       # Create a Project, will initially have no members
       # attributes: name, devurl, is_public, is_active
-      # API: 1,2
       # 
       def create(attributes={})
-        if (attributes[:is_active] or attributes[:is_public]) and !self.options[:api_version].eql?(2)
-          raise BugherdClient::Errors::UnsupportedAttributes, :v2, [:is_public, :is_active]
-        end
         raw_response = post_request("projects", project: attributes)
         parse_response(raw_response, :project)
       end
@@ -61,9 +57,8 @@ module BugherdClient
       # Add an existing guest to a project, or invite someone by email address.
       # required: project_id
       # attributes: user_id
-      # API: 2
+      # 
       def add_member(project_id, attributes={})
-        raise BugherdClient::Errors::UnsupportedMethod, :v2 unless self.options[:api_version].eql?(2)
         raw_response = post_request("projects/#{project_id}/add_member", attributes)
         parse_response(raw_response)
       end
@@ -71,9 +66,8 @@ module BugherdClient
 
       #
       # Get all active projects
-      # API: 2
+      # 
       def active
-        raise BugherdClient::Errors::UnsupportedMethod, :v2 unless self.options[:api_version].eql?(2)
         raw_response = get_request('projects/active')
         parse_response(raw_response, :projects)
       end

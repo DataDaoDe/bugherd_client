@@ -52,7 +52,7 @@ module BugherdClient
     end
 
     def resource(name, opts={})
-      klass = Object.const_get("BugherdClient::Resources::#{name.to_s.capitalize}")
+      klass = Object.const_get("BugherdClient::Resources::#{name.to_s.classify}")
       klass.new(self.connection, self.options)
     end
 

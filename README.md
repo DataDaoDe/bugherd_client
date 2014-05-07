@@ -24,7 +24,18 @@ Or install it yourself as:
 
 client = BugherdClient::Client.new(api_key: 'someapikey', api_version: 2) # api_version 2 is the default
 client.organization.get # => returns your organization information
-client.users.all
+client.users.all # => returns a list of all users
+project = client.projects.find(1023)
+user = client.users.all.first
+
+client.tasks.create(project[:id], {
+  description: 'Some description',
+  requester_id: user[:id],
+  status: BugherdClient::Resources::Task::STATUS_BACKLOG,
+  priority: BugherdClient::Resources::Task::PRIORITY_NORMAL,
+  external_id: 'my-external-app-123'
+})
+
 
 
 ```

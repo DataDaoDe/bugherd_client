@@ -1,4 +1,6 @@
 require 'rest_client'
+require 'active_support'
+require 'active_support/core_ext'
 
 module BugherdClient
   autoload :VERSION, "bugherd_client/version"

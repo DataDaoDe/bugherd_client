@@ -3,13 +3,17 @@ require 'json'
 module BugherdClient
   module Resources
     class Base
+
+      DEFAULT_HEADERS = { content_type: :json, accept: :json }
+
       attr_accessor :connection, :options
       def initialize(conn, opts={})
         @connection, @options = conn, opts
       end
 
-
-      def send_request(method="GET", path="", params={})
+      def send_request(method="GET", path="", params={}, headers={})
+        headers = DEFAULT_HEADERS.merge(headers)
+        params.merge!(headers)
         method_name = method.to_s.downcase
         self.connection[path].__send__(method_name, params)
       end
