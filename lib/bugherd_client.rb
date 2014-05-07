@@ -8,6 +8,15 @@ module BugherdClient
   autoload :Errors,  "bugherd_client/errors"
   
   module Resources
+    module V1
+      autoload :Base,           "bugherd_client/resources/v1/base"
+      autoload :Organization,   "bugherd_client/resources/v1/organization"
+      autoload :User,           "bugherd_client/resources/v1/user"
+      autoload :Project,        "bugherd_client/resources/v1/project"
+      autoload :Task,           "bugherd_client/resources/v1/task"
+      autoload :Comment,        "bugherd_client/resources/v1/comment"
+    end
+
     module V2
       autoload :Base,           "bugherd_client/resources/v2/base"
       autoload :Organization,   "bugherd_client/resources/v2/organization"

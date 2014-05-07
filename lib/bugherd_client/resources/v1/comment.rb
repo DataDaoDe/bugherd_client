@@ -1,6 +1,6 @@
 module BugherdClient
   module Resources
-    module V2
+    module V1
       
       class Comment < Base
 
@@ -10,14 +10,6 @@ module BugherdClient
         def all(project_id, task_id)
           raw_response = get_request("projects/#{project_id}/tasks/#{task_id}/comments")
           parse_response(raw_response, :comments)
-        end
-
-        #
-        # Get a single comment of a Task
-        #
-        def find(project_id, task_id, comment_id)
-          raw_response = get_request("projects/#{project_id}/tasks/#{task_id}/comments/#{comment_id}")
-          parse_response(raw_response, :comment)
         end
 
         #
