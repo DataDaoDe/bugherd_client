@@ -13,6 +13,14 @@ module BugherdClient
         end
 
         #
+        # Get a single comment of a Task
+        #
+        def find(project_id, task_id, comment_id)
+          raw_response = get_request("projects/#{project_id}/tasks/#{task_id}/comments/#{comment_id}")
+          parse_response(raw_response, :comment)
+        end
+
+        #
         # Create a comment
         # attributes: text, user_id or email
         def create(project_id, task_id, attributes={})
