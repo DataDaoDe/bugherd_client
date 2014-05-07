@@ -58,7 +58,7 @@ module BugherdClient
 
     def resource(name, opts={})
       version = self.options[:api_version]
-      klass = Object.const_get("BugherdClient::Resources::V#{version}::#{name.to_s.classify}")
+      klass = "BugherdClient::Resources::V#{version}::#{name.to_s.classify}".constantize
       klass.new(self.connection, self.options)
     end
 
