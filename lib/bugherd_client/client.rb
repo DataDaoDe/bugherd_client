@@ -1,3 +1,5 @@
+require 'logger'
+
 module BugherdClient
   class Client
 
@@ -19,53 +21,39 @@ module BugherdClient
     end
 
     def establish_connection!
-      username, password_or_key = build_credentials
-      self.connection = Her::API.new
-      self.connection.setup(url: base_url) do |conn|
-        conn.use Faraday::Request::UrlEncoded
-        conn.headers['Content-Type'] = 'application/json'
-
-        if username
-          conn.use Faraday::Request::BasicAuthentication, username, password_or_key
-        else
-          conn.headers['Authorization'] = Base64.encode64(password_or_key).gsub("\n", '')
-        end
-        
-        if self.options[:debug]
-          conn.use BugherdClient::MonkeyPatch::Debugger, debug: self.options[:debug]
-          conn.use Faraday::Response::Logger
-        end
-
-        conn.use Her::Middleware::DefaultParseJSON
-        conn.use Faraday::Adapter::NetHttp
+      check_options!
+      username, password = build_credentials
+      
+      if @options[:debug]
+        RestClient.log = ::Logger.new($stderr)
+        RestClient.log.level = Logger::DEBUG
       end
-    end
 
-
-    def build_credentials
-      if @options[:api_key]
-        [false, @options[:api_key]]
-      elsif @options[:username] && @options[:password]
-        [@options[:username], @options[:password]]
-      else
-        # TODO: Error Handling
-      end
+      self.connection = RestClient::Resource.new(base_url, user: username, password: password)
+      
     end
     
     def base_url
       File.join(options[:base_url], "api_v#{options[:api_version]}")
     end
 
-    def resource(name, opts={})
-      klass   = "BugherdClient::Resources::#{name.to_s.classify}".constantize
-      the_api = self.connection
-      Class.new(klass) do |c|
-        c.use_api(the_api)
-        c.parse_root_in_json(klass.parse_root_in_json)
-        c.element_name(klass.name.to_s.underscore.to_sym)
-        c.collection_path(klass.collection_path)
-        c.resource_path(klass.resource_path)
+    def check_options!
+      if !@options[:api_key] && !(@options[:username] && @options[:password])
+        raise BugherdClient::Errors::InvalidOption, "api_key or username and password is required"
       end
+    end
+
+    def build_credentials
+      if @options[:api_key]
+        [@options[:api_key], 'x']
+      else
+        [@options[:username], @options[:password]]
+      end
+    end
+
+    def resource(name, opts={})
+      klass = Object.const_get("BugherdClient::Resources::#{name.to_s.capitalize}")
+      klass.new(self.connection, self.options)
     end
 
     # 

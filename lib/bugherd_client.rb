@@ -1,9 +1,9 @@
-require 'her'
-require 'bugherd_client/monkey_patch'
+require 'rest_client'
 
 module BugherdClient
   autoload :VERSION, "bugherd_client/version"
   autoload :Client,  "bugherd_client/client"
+  autoload :Errors,  "bugherd_client/errors"
   module Resources
     autoload :Base, "bugherd_client/resources/base"
     autoload :Organization,  "bugherd_client/resources/organization"

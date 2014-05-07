@@ -1,19 +1,30 @@
+require 'json'
+
 module BugherdClient
   module Resources
     class Base
-      include Her::Model
-      include_root_in_json true
-      parse_root_in_json true, format: :active_model_serializers
-
-      def self.element_name(name)
-        @_her_root_element = name
+      attr_accessor :connection, :options
+      def initialize(conn, opts={})
+        @connection, @options = conn, opts
       end
 
-      def self.parse(data)
-        if data.respond_to?(:keys)
-          data.keys.include?(root_element) ? data[root_element] : data
+
+      def send_request(method="GET", path="", params={})
+        method_name = method.to_s.downcase
+        self.connection[path].__send__(method_name, params)
+      end
+
+      [:get, :post, :put, :patch, :delete].each do |method_name|
+        define_method("#{method_name}_request") do |path, params={}|
+          send_request(method_name, path, params)
+        end
+      end
+
+      def parse_response(response, root_element=nil)
+        if root_element
+          JSON.parse(response)[root_element.to_s]
         else
-          data
+          JSON.parse(response)
         end
       end
     end

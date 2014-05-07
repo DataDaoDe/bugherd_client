@@ -1,6 +1,8 @@
 # BugherdClient
 
-TODO: Write a gem description
+This is a Rest Client for the Bugherd API. It fully covers all methods of the v1 and v2 API Implementations.
+Another nifty feature is that its threadsafe so you could potentially have many instances floating around and don't
+have to worry about collisions as is the case with ActiveResource.
 
 ## Installation
 
@@ -16,9 +18,16 @@ Or install it yourself as:
 
     $ gem install bugherd_client
 
-## Usage
+## Basic Usage
 
-TODO: Write usage instructions here
+```ruby
+
+client = BugherdClient::Client.new(api_key: 'someapikey', api_version: 2) # api_version 2 is the default
+client.organization.get # => returns your organization information
+client.users.all
+
+
+```
 
 ## Contributing
 
