@@ -6,15 +6,19 @@ module BugherdClient
 
       class Base
 
-        DEFAULT_HEADERS = { content_type: :json, accept: :json }
+        DEFAULT_HEADER_ATTRS = {
+          :content_type => :json,
+          :accept => :json
+        }.freeze
 
         attr_accessor :connection, :options
+
         def initialize(conn, opts={})
           @connection, @options = conn, opts
         end
 
         def send_request(method="GET", path="", params={}, headers={})
-          headers = DEFAULT_HEADERS.merge(headers)
+          headers = DEFAULT_HEADER_ATTRS.merge(headers)
           params.merge!(headers)
           method_name = method.to_s.downcase
           self.connection[path].__send__(method_name, params)
@@ -33,6 +37,7 @@ module BugherdClient
             JSON.parse(response)
           end
         end
+
       end
 
     end
