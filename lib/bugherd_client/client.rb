@@ -11,6 +11,7 @@ module BugherdClient
       username: '',
       password: '',
       api_key: '',
+      api_rate_limiting_token: 'x',
       debug: false
     }
 
@@ -27,8 +28,8 @@ module BugherdClient
       username, password = build_credentials
       
       if @options[:debug]
-        RestClient.log = ::Logger.new($stderr)
-        RestClient.log.level = Logger::DEBUG
+        RestClient.log        = ::Logger.new($stderr)
+        RestClient.log.level  = ::Logger::DEBUG
       end
 
       self.connection = RestClient::Resource.new(base_url, user: username, password: password)
@@ -50,7 +51,7 @@ module BugherdClient
 
     def build_credentials
       if @options[:api_key]
-        [@options[:api_key], 'x']
+        [@options[:api_key], @options[:api_rate_limiting_token]]
       else
         [@options[:username], @options[:password]]
       end
