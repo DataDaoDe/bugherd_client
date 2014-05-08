@@ -7,6 +7,12 @@ module BugherdClient
       end
     end
 
+    class NotAvailable < StandardError
+      def initialize(api_version, msg="")
+        super("#{msg} not available in API v#{api_version}")
+      end
+    end
+
     class UnsupportedMethod < StandardError
       def initialize(api_version="")
         super("Method supported in API version #{api_version}")
