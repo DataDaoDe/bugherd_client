@@ -20,7 +20,7 @@
     <header>
       <div class="inner">
         <h1>Bugherd client</h1>
-        <h2>Ruby Client for the BugHerd REST API</h2>
+        <h2>Ruby Client for the Bugherd REST API</h2>
         <a href="https://github.com/jwaterfaucett/bugherd_client" class="button"><small>View project on</small>GitHub</a>
       </div>
     </header>
@@ -28,10 +28,14 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1>
-<a name="bugherdclient" class="anchor" href="#bugherdclient"><span class="octicon octicon-link"></span></a>BugherdClient</h1>
+          <p><a href="http://badge.fury.io/rb/bugherd_client"><img src="https://badge.fury.io/rb/bugherd_client.svg" alt="Gem Version"></a>
+<a href="https://gemnasium.com/jwaterfaucett/bugherd_client"><img src="https://gemnasium.com/jwaterfaucett/bugherd_client.svg" alt="Dependency Status"></a>
+<a href="https://travis-ci.org/jwaterfaucett/bugherd_client"><img src="https://travis-ci.org/jwaterfaucett/bugherd_client.svg?branch=master" alt="Build Status"></a></p>
 
-<p>This is a Rest Client for the Bugherd API. It fully covers all methods of the v1 and v2 API Implementations.
+<h1>
+<a name="bugherd-client" class="anchor" href="#bugherd-client"><span class="octicon octicon-link"></span></a>BugHerd Client</h1>
+
+<p>This is a Rest Client for the BugHerd API. It fully covers all methods of the v1 and v2 API Implementations.
 Another nifty feature is that its threadsafe so you could potentially have many instances floating around and don't
 have to worry about collisions as is the case with ActiveResource.</p>
 
@@ -57,21 +61,31 @@ have to worry about collisions as is the case with ActiveResource.</p>
 <a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
 
 <div class="highlight highlight-ruby"><pre>
-<span class="n">client</span> <span class="o">=</span> <span class="no">BugherdClient</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="s1">'someapikey'</span><span class="p">,</span> <span class="n">api_version</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># api_version 2 is the default</span>
-<span class="n">client</span><span class="o">.</span><span class="n">organization</span><span class="o">.</span><span class="n">get</span> <span class="c1"># =&gt; returns your organization information</span>
-<span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">all</span> <span class="c1"># =&gt; returns a list of all users</span>
-<span class="n">project</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1023</span><span class="p">)</span>
-<span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">first</span>
+<span class="c1"># create a client form an api_key, it will automatically use v2 of the BugHerd API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="no">BugherdClient</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="s1">'someapikey'</span><span class="p">)</span>
 
-<span class="n">client</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s1">'Some description'</span><span class="p">,</span>
+<span class="c1"># Get information about your organization</span>
+<span class="n">client</span><span class="o">.</span><span class="n">organization</span><span class="o">.</span><span class="n">get</span> <span class="c1"># =&gt; returns your organization information</span>
+
+<span class="c1"># Get a list of all users</span>
+<span class="n">all_users</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">all</span> <span class="c1"># =&gt; returns a list of all users</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">all_users</span><span class="o">.</span><span class="n">first</span>
+
+<span class="c1"># Find a specific project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1023</span><span class="p">)</span>
+
+<span class="c1"># Create a new Task</span>
+<span class="n">task</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span>
+  <span class="ss">description</span><span class="p">:</span> <span class="s1">'This is a description'</span><span class="p">,</span>
   <span class="n">requester_id</span><span class="p">:</span> <span class="n">user</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span>
-  <span class="ss">status</span><span class="p">:</span> <span class="no">BugherdClient</span><span class="o">::</span><span class="no">Resources</span><span class="o">::</span><span class="no">Task</span><span class="o">::</span><span class="no">STATUS_BACKLOG</span><span class="p">,</span>
-  <span class="ss">priority</span><span class="p">:</span> <span class="no">BugherdClient</span><span class="o">::</span><span class="no">Resources</span><span class="o">::</span><span class="no">Task</span><span class="o">::</span><span class="no">PRIORITY_NORMAL</span><span class="p">,</span>
-  <span class="n">external_id</span><span class="p">:</span> <span class="s1">'my-external-app-123'</span>
+  <span class="ss">status</span><span class="p">:</span> <span class="s1">'backlog'</span><span class="p">,</span>
+  <span class="ss">priority</span><span class="p">:</span> <span class="s1">'normal'</span>
 <span class="p">})</span>
 
-
+<span class="c1"># Create a comment</span>
+<span class="n">client</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span> <span class="n">task</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span>
+  <span class="ss">text</span><span class="p">:</span> <span class="s1">'hey this is a comment'</span>
+<span class="p">})</span>
 
 </pre></div>
 
