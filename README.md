@@ -1,3 +1,8 @@
+[![Gem Version](https://badge.fury.io/rb/bugherd_client.svg)](http://badge.fury.io/rb/bugherd_client)
+[![Dependency Status](https://gemnasium.com/jwaterfaucett/bugherd_client.svg)](https://gemnasium.com/jwaterfaucett/bugherd_client)
+[![Build Status](https://travis-ci.org/jwaterfaucett/bugherd_client.svg?branch=master)](https://travis-ci.org/jwaterfaucett/bugherd_client)
+
+
 # BugherdClient
 
 This is a Rest Client for the Bugherd API. It fully covers all methods of the v1 and v2 API Implementations.
@@ -22,21 +27,31 @@ Or install it yourself as:
 
 ```ruby
 
-client = BugherdClient::Client.new(api_key: 'someapikey', api_version: 2) # api_version 2 is the default
-client.organization.get # => returns your organization information
-client.users.all # => returns a list of all users
-project = client.projects.find(1023)
-user = client.users.all.first
+# create a client form an api_key, it will automatically use v2 of the BugHerd API
+client = BugherdClient::Client.new(api_key: 'someapikey')
 
-client.tasks.create(project[:id], {
-  description: 'Some description',
+# Get information about your organization
+client.organization.get # => returns your organization information
+
+# Get a list of all users
+all_users = client.users.all # => returns a list of all users
+user = all_users.first
+
+# Find a specific project
+project = client.projects.find(1023)
+
+# Create a new Task
+task = client.tasks.create(project[:id], {
+  description: 'This is a description',
   requester_id: user[:id],
-  status: BugherdClient::Resources::Task::STATUS_BACKLOG,
-  priority: BugherdClient::Resources::Task::PRIORITY_NORMAL,
-  external_id: 'my-external-app-123'
+  status: 'backlog',
+  priority: 'normal'
 })
 
-
+# Create a comment
+client.comments.create(project[:id], task[:id], {
+  text: 'hey this is a comment'
+})
 
 ```
 
