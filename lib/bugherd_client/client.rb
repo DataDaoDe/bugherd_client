@@ -3,7 +3,7 @@ require 'logger'
 module BugherdClient
   class Client
 
-    VALID_API_VERSIONS = [1,2].freeze
+    API_VERSIONS = [1,2].freeze
 
     DEFAULT_OPTIONS = {
       base_url: 'https://www.bugherd.com',
@@ -44,8 +44,8 @@ module BugherdClient
       if !@options[:api_key] && !(@options[:username] && @options[:password])
         raise BugherdClient::Errors::InvalidOption, "api_key or username and password is required"
       end
-      unless VALID_API_VERSIONS.include?(@options[:api_version])
-        raise BugherdClient::Errors::InvalidOption, "api_version must be #{VALID_API_VERSIONS.join(',')}"
+      unless API_VERSIONS.include?(@options[:api_version])
+        raise BugherdClient::Errors::InvalidOption, "api_version must be #{API_VERSIONS.join(',')}"
       end
     end
 
