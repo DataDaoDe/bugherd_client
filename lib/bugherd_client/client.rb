@@ -13,12 +13,12 @@ module BugherdClient
       api_key: '',
       api_rate_limiting_token: 'x',
       debug: false
-    }
+    }.freeze
 
     attr_accessor :options, :connection
 
-    def initialize(options={}, &block)
-      @options = DEFAULT_OPTIONS.merge(options)
+    def initialize(opts={}, &block)
+      @options = DEFAULT_OPTIONS.merge(opts)
       yield(self) if block_given?
       establish_connection!
     end
@@ -31,9 +31,7 @@ module BugherdClient
         RestClient.log        = ::Logger.new($stderr)
         RestClient.log.level  = ::Logger::DEBUG
       end
-
       self.connection = RestClient::Resource.new(base_url, user: username, password: password)
-      
     end
     
     def base_url
@@ -50,17 +48,17 @@ module BugherdClient
     end
 
     def build_credentials
-      if @options[:api_key]
+      if @options[:api_key].present?
         [@options[:api_key], @options[:api_rate_limiting_token]]
       else
         [@options[:username], @options[:password]]
       end
     end
 
-    def resource(name, opts={})
+    def resource(name)
       version = self.options[:api_version]
       klass = "BugherdClient::Resources::V#{version}::#{name.to_s.classify}".constantize
-      klass.new(self.connection, self.options)
+      klass.new(self.connection, @options)
     end
 
     # 

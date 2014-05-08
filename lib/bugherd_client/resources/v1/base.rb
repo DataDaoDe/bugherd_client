@@ -6,7 +6,10 @@ module BugherdClient
 
       class Base
 
-        DEFAULT_HEADERS = { content_type: :json, accept: :json }
+        DEFAULT_HEADER_ATTRS = {
+          'Content-Type' => 'application/json',
+          'Accept' => 'application/json'
+        }.freeze
 
         #
         # Return a list of available methods in a Resource
@@ -21,7 +24,7 @@ module BugherdClient
         end
 
         def send_request(method="GET", path="", params={}, headers={})
-          headers = DEFAULT_HEADERS.merge(headers)
+          headers = DEFAULT_HEADER_ATTRS.merge(headers)
           params.merge!(headers)
           method_name = method.to_s.downcase
           self.connection[path].__send__(method_name, params)
@@ -35,7 +38,12 @@ module BugherdClient
 
         def parse_response(response, root_element=nil)
           if root_element
-            JSON.parse(response)[root_element.to_s]
+            pr = JSON.parse(response)
+            if pr.is_a?(Hash) and pr.has_key?(root_element)
+              pr[root_element]
+            else
+              pr
+            end
           else
             JSON.parse(response)
           end

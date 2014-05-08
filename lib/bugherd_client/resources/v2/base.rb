@@ -11,8 +11,14 @@ module BugherdClient
           :accept => :json
         }.freeze
 
-        attr_accessor :connection, :options
+        #
+        # Return a list of available methods in a Resource
+        #
+        def api_methods
+          self.class.instance_methods(false)
+        end
 
+        attr_accessor :connection, :options
         def initialize(conn, opts={})
           @connection, @options = conn, opts
         end

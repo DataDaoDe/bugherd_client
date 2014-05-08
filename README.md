@@ -3,9 +3,9 @@
 [![Build Status](https://travis-ci.org/jwaterfaucett/bugherd_client.svg?branch=master)](https://travis-ci.org/jwaterfaucett/bugherd_client)
 
 
-# BugherdClient
+# BugHerd Client
 
-This is a Rest Client for the Bugherd API. It fully covers all methods of the v1 and v2 API Implementations.
+This is a Rest Client for the BugHerd API. It fully covers all methods of the v1 and v2 API Implementations.
 Another nifty feature is that its threadsafe so you could potentially have many instances floating around and don't
 have to worry about collisions as is the case with ActiveResource.
 
