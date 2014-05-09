@@ -36,12 +36,24 @@ module BugherdClient
           end
         end
 
+        def converter(body)
+          case body
+          when Hash
+            ::Hashie::Mash.new(body)
+          when Array
+            body.map { |item| item.is_a?(Hash) ? converter(item) : item }
+          else
+            body
+          end
+        end
+
         def parse_response(response, root_element=nil)
-          if root_element
+          parsed = if root_element
             JSON.parse(response)[root_element.to_s]
           else
             JSON.parse(response)
           end
+          converter(parsed)
         end
 
       end

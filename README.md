@@ -27,8 +27,14 @@ Or install it yourself as:
 
 ```ruby
 
-# create a client form an api_key, it will automatically use v2 of the BugHerd API
+# create a client from an api_key, it will automatically use the latest version of the BugHerd API (currently v2)
 client = BugherdClient::Client.new(api_key: 'someapikey')
+
+# or you can create the client using block syntax
+client = BugherdClient::Client.new do |c|
+  c.username = 'user'
+  c.password = 'pass'
+end
 
 # Get information about your organization
 client.organization.get # => returns your organization information
