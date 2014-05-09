@@ -47,15 +47,15 @@ user = all_users.first
 project = client.projects.find(1023)
 
 # Create a new Task
-task = client.tasks.create(project[:id], {
+task = client.tasks.create(project.id, {
   description: 'This is a description',
-  requester_id: user[:id],
+  requester_id: user.id,
   status: 'backlog',
   priority: 'normal'
 })
 
 # Create a comment
-client.comments.create(project[:id], task[:id], {
+client.comments.create(project.id, task.id, {
   text: 'hey this is a comment'
 })
 
