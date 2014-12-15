@@ -26,6 +26,7 @@ module BugherdClient
       autoload :Task,           'bugherd_client/resources/v2/task'
       autoload :Comment,        'bugherd_client/resources/v2/comment'
       autoload :Webhook,        'bugherd_client/resources/v2/webhook'
+      autoload :Attachment,     'bugherd_client/resources/v2/attachment'
     end
   end
 

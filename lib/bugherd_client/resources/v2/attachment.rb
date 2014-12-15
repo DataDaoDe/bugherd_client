@@ -8,7 +8,9 @@ module BugherdClient
         #
         # Get a paginated list of attachments for a task.
         # GET /api_v2/projects/#{project_id}/tasks/#{task_id}/attachments.json
-        def all
+        def all(project_id, task_id)
+          raw_response = get_request("projects/#{project_id}/tasks/#{task_id}/attachments")
+          parse_response(raw_response, :attachments)
         end
 
         # SHOW
@@ -16,6 +18,8 @@ module BugherdClient
         # Get detail for specific attachment.
         # GET /api_v2/projects/#{project_id}/tasks/#{task_id}/attachments/#{id}.json
         def find(project_id, task_id, attachment_id)
+          raw_response = get_request("projects/#{project_id}/tasks/#{task_id}/attachments/#{attachment_id}")
+          parse_response(raw_response)
         end
 
         # CREATE
@@ -44,7 +48,7 @@ module BugherdClient
         # POST /api_v2/projects/#{project_id}/tasks/#{task_id}/attachments/upload
         #
         # Note in the sample below please specify an existing file name.
-        def upload(projet_id, task_id, payload)
+        def upload(project_id, task_id, payload)
         end
 
         # DELETE
