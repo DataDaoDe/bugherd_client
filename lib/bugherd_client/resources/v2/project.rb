@@ -6,7 +6,7 @@ module BugherdClient
 
         #
         # Get more detail of your account.
-        # 
+        #
         def all
           raw_response = get_request('projects')
           parse_response(raw_response, :projects)
@@ -14,7 +14,7 @@ module BugherdClient
 
         #
         # Show details for a specific project
-        # 
+        #
         def find(project_id)
           raw_response = get_request("projects/#{project_id}")
           parse_response(raw_response, :project)
@@ -23,9 +23,9 @@ module BugherdClient
         #
         # Create a Project, will initially have no members
         # attributes: name, devurl, is_public, is_active
-        # 
+        #
         def create(attributes={})
-          raw_response = post_request("projects", project: attributes)
+          raw_response = post_request('projects', project: attributes)
           parse_response(raw_response, :project)
         end
 
@@ -37,7 +37,7 @@ module BugherdClient
           parse_response(raw_response, :project)
         end
 
-        # 
+        #
         # Delete a project and all associated data. Use with care, deleted projects cannot be recovered.
         # API: 1,2
         def delete(project_id)
@@ -45,7 +45,7 @@ module BugherdClient
           parse_response(raw_response)
         end
 
-        # 
+        #
         # Add an existing guest to a project, or invite someone by email address.
         # required: project_id
         # attributes: user_id, email
@@ -55,11 +55,11 @@ module BugherdClient
           parse_response(raw_response)
         end
 
-        # 
+        #
         # Add an existing guest to a project, or invite someone by email address.
         # required: project_id
         # attributes: user_id
-        # 
+        #
         def add_member(project_id, attributes={})
           raw_response = post_request("projects/#{project_id}/add_member", attributes)
           parse_response(raw_response)
@@ -68,13 +68,13 @@ module BugherdClient
 
         #
         # Get all active projects
-        # 
+        #
         def active
           raw_response = get_request('projects/active')
           parse_response(raw_response, :projects)
         end
       end
-      
+
     end
   end
 end

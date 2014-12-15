@@ -12,7 +12,7 @@ module BugherdClient
         STATUSES   = ['feedback', 'backlog','todo','doing','done','closed']
         STATUSES.each.with_index do |status, index|
           if index == 0
-            Task.const_set("STATUS_#{status.upcase}", nil)  
+            Task.const_set("STATUS_#{status.upcase}", nil)
           else
             Task.const_set("STATUS_#{status.upcase}", index-1)
           end
@@ -37,15 +37,15 @@ module BugherdClient
 
         #
         # Create a new Task
-        # attributes: 
-        #   description, priority, status, tag_names(Array), 
-        #   requester_id or requester_email, 
+        # attributes:
+        #   description, priority, status, tag_names(Array),
+        #   requester_id or requester_email,
         #   assigned_to_id or assigned_to_email
         #   external_id
         # if status is null the Task is automatically put in the Feedback panel
-        # "requester_email" can be any email address while "assigned_to_email" needs to be of a current project member.
-        # Values for "priority" are not set, critical, important, normal, and minor.
-        # Values for "status" are backlog, todo, doing, done, and closed. Omit this field or set as "null" to send tasks to the Feedback panel.
+        # 'requester_email' can be any email address while 'assigned_to_email' needs to be of a current project member.
+        # Values for 'priority' are not set, critical, important, normal, and minor.
+        # Values for 'status' are backlog, todo, doing, done, and closed. Omit this field or set as 'null' to send tasks to the Feedback panel.
         # External ID is an API-only field. It cannot be set from the BugHerd application, only using the API. An external ID can be used to track originating IDs from other systems in BugHerd bugs.
         def create(project_id, attributes={})
           raw_response = post_request("projects/#{project_id}/tasks", task: attributes)
@@ -55,6 +55,9 @@ module BugherdClient
         def update(project_id, task_id, attributes={})
           raw_response = put_request("projects/#{project_id}/tasks/#{task_id}", task: attributes)
           parse_response(raw_response)
+        end
+
+        def delete(project_id, task_id)
         end
 
       end

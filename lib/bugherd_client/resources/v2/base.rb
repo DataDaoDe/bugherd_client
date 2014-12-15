@@ -18,12 +18,16 @@ module BugherdClient
           self.class.instance_methods(false)
         end
 
-        attr_accessor :connection, :options
+        # store a reference to the HTTP connection
+        attr_accessor :connection
+
+        attr_accessor :options
+
         def initialize(conn, opts={})
           @connection, @options = conn, opts
         end
 
-        def send_request(method="GET", path="", params={}, headers={})
+        def send_request(method='GET', path='', params={}, headers={})
           headers = DEFAULT_HEADER_ATTRS.merge(headers)
           params.merge!(headers)
           method_name = method.to_s.downcase
@@ -49,7 +53,8 @@ module BugherdClient
 
         def parse_response(response, root_element=nil)
           parsed = if root_element
-            JSON.parse(response)[root_element.to_s]
+            p = JSON.parse(response)
+            p.key?(root_element.to_s) ? p[root_element.to_s] : p
           else
             JSON.parse(response)
           end

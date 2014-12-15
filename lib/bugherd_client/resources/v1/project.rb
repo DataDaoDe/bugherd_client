@@ -25,7 +25,7 @@ module BugherdClient
         # attributes: name, devurl, is_public, is_active
         #
         def create(attributes={})
-          raw_response = post_request("projects", project: attributes)
+          raw_response = post_request('projects', project: attributes)
           parse_response(raw_response, :project)
         end
 
@@ -37,7 +37,7 @@ module BugherdClient
           parse_response(raw_response, :project)
         end
 
-        # 
+        #
         # Delete a project and all associated data. Use with care, deleted projects cannot be recovered.
         #
         def delete(project_id)
@@ -46,7 +46,7 @@ module BugherdClient
         end
 
       end
-      
+
     end
   end
 end

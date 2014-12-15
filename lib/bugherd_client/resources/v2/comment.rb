@@ -1,7 +1,7 @@
 module BugherdClient
   module Resources
     module V2
-      
+
       class Comment < Base
 
         #

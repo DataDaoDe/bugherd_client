@@ -23,7 +23,7 @@ module BugherdClient
           @connection, @options = conn, opts
         end
 
-        def send_request(method="GET", path="", params={}, headers={})
+        def send_request(method='GET', path='', params={}, headers={})
           headers = DEFAULT_HEADER_ATTRS.merge(headers)
           params.merge!(headers)
           method_name = method.to_s.downcase
