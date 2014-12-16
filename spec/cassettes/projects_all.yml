@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing:x@www.bugherd.com/api_v2/projects
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Dec 2014 10:25:45 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 0830f02bb7e9e391e0f17741cf2c3554
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.049840'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"58419ca1a3a9f7cb3ceeea57f25af6b8"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=DD63644E825132555253BC41B9F2C6C0; path=/
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-16T10%3A25%3A45%2B00%3A00%22%7D;
+        path=/; expires=Sat, 16-Dec-2034 10:25:45 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"projects":[{"id":40093,"name":"MyTestProject"},{"id":40420,"name":"how
+        to be cool"}],"meta":{"count":2}}'
+    http_version:
+  recorded_at: Tue, 16 Dec 2014 10:25:45 GMT
+recorded_with: VCR 2.9.3

@@ -20,9 +20,18 @@ module BugherdClient
           parse_response(raw_response, :project)
         end
 
+        # CREATE
         #
-        # Create a Project, will initially have no members
-        # attributes: name, devurl, is_public, is_active
+        # Create a new project. The project will initially have no members.
+        # POST /api_v2/projects.json
+        #
+        # PARAMS:
+        # {
+        #   "name": "My Website",
+        #   "devurl": "http://www.example.com",
+        #   "is_active": true,
+        #   "is_public": false
+        # }
         #
         def create(attributes={})
           raw_response = post_request('projects', project: attributes)

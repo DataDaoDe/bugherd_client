@@ -33,7 +33,7 @@ module BugherdClient
         #
         def find(project_id, task_id)
           raw_response = get_request("projects/#{project_id}/tasks/#{task_id}")
-          parse_response(raw_response)
+          parse_response(raw_response, :task)
         end
 
         #

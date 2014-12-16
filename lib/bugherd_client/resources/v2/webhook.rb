@@ -10,7 +10,7 @@ module BugherdClient
         # GET /api_v2/webhooks.json
         def all
           raw_response = get_request('webhooks')
-          parse_response(raw_response, :webhook)
+          parse_response(raw_response, :webhooks)
         end
 
         # CREATE

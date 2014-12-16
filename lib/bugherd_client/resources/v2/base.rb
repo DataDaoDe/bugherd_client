@@ -32,6 +32,8 @@ module BugherdClient
           params.merge!(headers)
           method_name = method.to_s.downcase
           self.connection[path].__send__(method_name, params)
+        rescue RestClient::Exception => e
+          raise(BugherdClient::Errors::HttpRequestError.new(e.message, e.http_code))
         end
 
         [:get, :post, :put, :patch, :delete].each do |method_name|

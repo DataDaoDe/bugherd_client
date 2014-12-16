@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing:x@www.bugherd.com/api_v2/users/members
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Dec 2014 12:27:09 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 304c41dfb4b07ed826ab349971fc7e2f
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.039134'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"1cf31ec801872c093ed5e65c6a445d44"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=F79505634CB879F90FD744F06F62BF75; path=/
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fusers%2Fmembers%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-16T12%3A27%3A09%2B00%3A00%22%7D;
+        path=/; expires=Sat, 16-Dec-2034 12:27:09 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"users":[{"id":50194,"email":"jan.schwenzien@testcloud.de","display_name":"Jan
+        Schwenzien","avatar_url":"https://www.bugherd.com/images/sidebar/avatar-generic.png"},{"id":50190,"email":"john.faucett@testcloud.de","display_name":"John
+        Faucett","avatar_url":"https://www.bugherd.com/images/sidebar/avatar-generic.png"}],"meta":{"count":2}}'
+    http_version:
+  recorded_at: Tue, 16 Dec 2014 12:27:09 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing:x@www.bugherd.com/api_v2/organization
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Dec 2014 10:12:33 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - a4556a70c2d77eacc98719a9cf1db61a
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.031217'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"2268e965d1b289cb0de8af3514b1993c"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=F79505634CB879F90FD744F06F62BF75; path=/
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Forganization%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-16T10%3A12%3A33%2B00%3A00%22%7D;
+        path=/; expires=Sat, 16-Dec-2034 10:12:33 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"organization":{"id":21203,"name":"testCloud"}}'
+    http_version:
+  recorded_at: Tue, 16 Dec 2014 10:12:33 GMT
+recorded_with: VCR 2.9.3

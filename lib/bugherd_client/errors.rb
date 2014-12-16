@@ -19,6 +19,14 @@ module BugherdClient
       end
     end
 
+    class HttpRequestError < StandardError
+      attr_accessor :http_code
+      def initialize(message = '', code = 500)
+        super(message)
+        @http_code = code
+      end
+    end
+
     class UnsupportedMethod < StandardError
       def initialize(api_version='')
         super("Method supported in API version #{api_version}")

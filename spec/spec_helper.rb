@@ -1,7 +1,17 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+lib = File.expand_path('../../lib', __FILE__)
+support = File.expand_path('../support', __FILE__)
+[lib, support].each { |path| $:.unshift(path) unless $:.include?(path) }
+require 'pry'
+
+# coverage
+require 'simplecov'
+SimpleCov.start do
+  add_filter '/spec/'
+  add_group  'api_v1', 'bugherd_client/resources/v1'
+  add_group  'api_v2', 'bugherd_client/resources/v2'
+end
 
 require 'bugherd_client'
 
@@ -19,8 +29,9 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
+  config.order = :random
+  Kernel.srand(config.seed)
 
-  config.seed = Time.now.to_i
-
-  config.order = 'random'
+  # Show the 10 slowest tests
+  config.profile_examples = 10
 end

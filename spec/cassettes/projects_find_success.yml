@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing:x@www.bugherd.com/api_v2/projects/40093
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Dec 2014 10:36:42 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 23609abf2633b0fb48c08f5bb0a32432
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.051371'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"19c667e50da5ac62c12bdb27f387b022"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=DD63644E825132555253BC41B9F2C6C0; path=/
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%2F40093%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-16T10%3A36%3A42%2B00%3A00%22%7D;
+        path=/; expires=Sat, 16-Dec-2034 10:36:42 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"project":{"id":40093,"name":"MyTestProject","devurl":"https://www.testcloud.de","api_key":"6oz4wx52erigdpckz5blag","is_active":true,"is_public":null,"members":[{"id":50190,"email":"john.faucett@testcloud.de","display_name":"John
+        Faucett","avatar_url":"https://www.bugherd.com/images/sidebar/avatar-generic.png"}],"guests":[{"id":50536,"email":"tilman.bahls@testcloud.de","display_name":"tilman.bahls@testcloud.de","avatar_url":"https://bugherd-attachments.s3.amazonaws.com/zpyio6vsupbtvt82ofjx6w%2Favatar.png"}]}}'
+    http_version:
+  recorded_at: Tue, 16 Dec 2014 10:36:42 GMT
+recorded_with: VCR 2.9.3

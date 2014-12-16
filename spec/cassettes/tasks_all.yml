@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing:x@www.bugherd.com/api_v2/projects/40093/tasks
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Dec 2014 11:55:14 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 68e46abe9931421a5a3b8d662ea6b5d8
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.042415'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"32f12a08414d4c0e300d719c3f2805d7"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=F79505634CB879F90FD744F06F62BF75; path=/
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%2F40093%2Ftasks%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-16T11%3A55%3A14%2B00%3A00%22%7D;
+        path=/; expires=Sat, 16-Dec-2034 11:55:14 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"tasks":[{"id":1035995,"created_at":"2014-05-08T07:53:00Z","updated_at":"2014-05-08T11:27:45Z","local_task_id":5,"priority_id":2,"assigned_to_id":null,"status_id":0,"description":"testCloud
+        ID: #10821\nApp Section: Produktdetailseite Vollbildansicht der Produkte\nURL:
+        www.testcloud.de/demobug\n\nDies ist ein Demo-Bug aus dem testCloud System.
+        Wenn Sie diesen Bug sehen, wurde die Export-Schnittstelle zu Ihrem Bugtracker
+        erfolgreich implementiert und ist einsatzbereit.\n\n* http://devuploads.testcloud.de:3000/uploads/bug_attachment/file/30642/cf54ff14-83e4-5a53-821b-b22a11a822c8.png\n\n","tag_names":[],"external_id":"testcloudClient","requester_id":null,"requester_email":null},{"id":1036643,"created_at":"2014-05-08T11:29:21Z","updated_at":"2014-05-08T11:29:25Z","local_task_id":9,"priority_id":1,"assigned_to_id":50190,"status_id":0,"description":"Here
+        is a comment","tag_names":["wierd tag"],"external_id":null,"requester_id":50190,"requester_email":"john.faucett@testcloud.de"},{"id":1037689,"created_at":"2014-05-08T15:29:58Z","updated_at":"2014-05-09T08:08:30Z","local_task_id":12,"priority_id":2,"assigned_to_id":null,"status_id":2,"description":"testcloud
+        Demobug\n\ntestCloud ID: #10821\nApp Section: Produktdetailseite Vollbildansicht
+        der Produkte\nURL: www.testcloud.de/demobug\n\nDies ist ein Demo-Bug aus dem
+        testCloud System. Wenn Sie diesen Bug sehen, wurde die Export-Schnittstelle
+        zu Ihrem Bugtracker erfolgreich implementiert und ist einsatzbereit.\n\n*
+        http://devuploads.testcloud.de:3000/uploads/bug_attachment/file/30642/cf54ff14-83e4-5a53-821b-b22a11a822c8.png\n\n\n","tag_names":["Demobug","default","Staging"],"external_id":"testcloudClient","requester_id":null,"requester_email":null},{"id":1037669,"created_at":"2014-05-08T15:25:26Z","updated_at":"2014-05-09T08:10:08Z","local_task_id":11,"priority_id":2,"assigned_to_id":null,"status_id":2,"description":"testCloud
+        ID: #10821\nApp Section: Produktdetailseite Vollbildansicht der Produkte\nURL:
+        www.testcloud.de/demobug\n\nDies ist ein Demo-Bug aus dem testCloud System.
+        Wenn Sie diesen Bug sehen, wurde die Export-Schnittstelle zu Ihrem Bugtracker
+        erfolgreich implementiert und ist einsatzbereit.\n\n* http://devuploads.testcloud.de:3000/uploads/bug_attachment/file/30642/cf54ff14-83e4-5a53-821b-b22a11a822c8.png\n\n","tag_names":["Demobug","default","Staging"],"external_id":"testcloudClient","requester_id":null,"requester_email":null},{"id":1036677,"created_at":"2014-05-08T11:34:58Z","updated_at":"2014-05-09T08:10:12Z","local_task_id":10,"priority_id":1,"assigned_to_id":null,"status_id":0,"description":"hello
+        world","tag_names":[],"external_id":null,"requester_id":null,"requester_email":null},{"id":1036021,"created_at":"2014-05-08T08:01:28Z","updated_at":"2014-05-09T08:10:15Z","local_task_id":6,"priority_id":2,"assigned_to_id":null,"status_id":0,"description":"testCloud
+        ID: #10821\nApp Section: Produktdetailseite Vollbildansicht der Produkte\nURL:
+        www.testcloud.de/demobug\n\nDies ist ein Demo-Bug aus dem testCloud System.
+        Wenn Sie diesen Bug sehen, wurde die Export-Schnittstelle zu Ihrem Bugtracker
+        erfolgreich implementiert und ist einsatzbereit.\n\n* http://devuploads.testcloud.de:3000/uploads/bug_attachment/file/30642/cf54ff14-83e4-5a53-821b-b22a11a822c8.png\n\n","tag_names":["Demobug"],"external_id":"testcloudClient","requester_id":null,"requester_email":null},{"id":1036294,"created_at":"2014-05-08T09:53:09Z","updated_at":"2014-05-09T08:10:16Z","local_task_id":7,"priority_id":2,"assigned_to_id":null,"status_id":0,"description":"testCloud
+        ID: #10821\nApp Bereich: Produktdetailseite Vollbildansicht der Produkte\nURL:
+        www.testcloud.de/demobug\n\nDies ist ein Demo-Bug aus dem testCloud System.
+        Wenn Sie diesen Bug sehen, wurde die Export-Schnittstelle zu Ihrem Bugtracker
+        erfolgreich implementiert und ist einsatzbereit.\n\n* https://uploads.testcloud.de/uploads/bug_attachment/file/30642/cf54ff14-83e4-5a53-821b-b22a11a822c8.png\n\n","tag_names":["Demobug"],"external_id":"testcloudClient","requester_id":null,"requester_email":null}],"meta":{"count":7}}'
+    http_version:
+  recorded_at: Tue, 16 Dec 2014 11:55:14 GMT
+recorded_with: VCR 2.9.3
