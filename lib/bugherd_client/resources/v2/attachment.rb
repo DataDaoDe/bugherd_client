@@ -61,7 +61,9 @@ module BugherdClient
         #
         # Delete an attachment from a task. Note that this action is permanent and cannot be undone.
         # DELETE /api_v2/projects/#{project_id}/tasks/#{task_id}/attachments/#{id}.json
-        def delete
+        def delete(project_id, task_id, attachment_id)
+          raw_response = delete_request("projects/#{project_id}/tasks/#{task_id}/attachments/#{attachment_id}")
+          parse_response(raw_response)
         end
 
       end
