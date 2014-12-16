@@ -28,11 +28,13 @@ module BugherdClient
         # POST /api_v2/projects/#{project_id}/tasks/#{task_id}/attachments.json
         #
         # PARAMS
-        # {'comment':{
+        # {'attachment':{
         #   'file_name':'resolution.gif',
         #   'url':'http://i.imgur.com/U9h3jZI.gif'
         # }}
         def create(project_id, task_id, payload)
+          raw_response = post_request("projects/#{project_id}/tasks/#{task_id}/attachments", attachment: payload)
+          parse_response(raw_response, :attachment)
         end
 
         # UPLOAD
