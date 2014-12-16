@@ -51,6 +51,10 @@ module BugherdClient
         #
         # Note in the sample below please specify an existing file name.
         def upload(project_id, task_id, payload)
+          uri = "projects/#{project_id}/tasks/#{task_id}/attachments/upload"
+          headers = { content_type: 'application/binary' }
+          raw_response = post_request(uri, payload.merge(headers: headers))
+          parse_response(raw_response, :attachment)
         end
 
         # DELETE
