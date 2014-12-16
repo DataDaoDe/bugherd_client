@@ -9,6 +9,8 @@ This is a Rest Client for the BugHerd API. It fully covers all methods of the v1
 
 Another nifty feature is that it's threadsafe so you could potentially have many instances floating around and don't have to worry about collisions as is the case with ActiveResource.
 
+This client supports JRuby, Rubinius, and MRI 1.9.3 and above.
+
 ## Installation
 
 Add this line to your application's Gemfile:
