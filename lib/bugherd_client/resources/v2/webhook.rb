@@ -30,13 +30,17 @@ module BugherdClient
         #   'event':'task_create'
         # }
         #
-        def create
+        def create(payload = {})
+          raw_response = post_request('webhooks', payload)
+          parse_response(raw_response, :webhook)
         end
 
         # DELETE
         #
         # DELETE /api_v2/webhooks/#{id}.json
-        def delete
+        def delete(webhook_id)
+          raw_response = delete_request("webhooks/#{webhook_id}")
+          parse_response(raw_response)
         end
 
       end
