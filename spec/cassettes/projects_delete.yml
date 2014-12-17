@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing:x@www.bugherd.com/api_v2/projects/59745
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 17 Dec 2014 16:38:13 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 9da745ce2f718a1096d611552af754c9
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.037519'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"1a7ba4381b7d7c1ca623d9bb50f39533"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=1E758C009836F053015B6438BA84600D; path=/
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%2F59745%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-17T16%3A38%3A13%2B00%3A00%22%7D;
+        path=/; expires=Sun, 17-Dec-2034 16:38:13 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"project":{"id":59745,"name":"TestProject","devurl":"https://testproject.com","api_key":"jfcsimyis4g9dpybkxsriq","is_active":true,"is_public":null,"members":[],"guests":[]}}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 16:38:13 GMT
+- request:
+    method: delete
+    uri: https://testing:x@www.bugherd.com/api_v2/projects/59745
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 17 Dec 2014 16:38:13 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - cae27b196caf7c7cbfa2fb2d971e389d
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.085804'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"7363e85fe9edee6f053a4b319588c086"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=F79505634CB879F90FD744F06F62BF75; path=/
+      - _bugherd_session3=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJTYyZDU4YzQyMjgwZGFiYjM0YmEyMjA4Zjc1YWQ1NmIwBjsAVA%3D%3D--909534decd6314405931f75661e4e89597492d13;
+        path=/; HttpOnly
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%2F59745%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-17T16%3A38%3A13%2B00%3A00%22%7D;
+        path=/; expires=Sun, 17-Dec-2034 16:38:13 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"success":true}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 16:38:13 GMT
+recorded_with: VCR 2.9.3

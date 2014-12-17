@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://testing:x@www.bugherd.com/api_v2/projects
+    body:
+      encoding: US-ASCII
+      string: project[name]=TestProject&project[devurl]=https%3A%2F%2Ftestproject.com&content_type=json&accept=json
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '101'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 17 Dec 2014 16:29:22 GMT
+      Status:
+      - 201 Created
+      X-Request-Id:
+      - e30b1cc060d27ca554cd181800900540
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.293009'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"1a7ba4381b7d7c1ca623d9bb50f39533"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=E1227771D62C08D6CA46945339FEFF4D; path=/
+      - _bugherd_session3=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJTY0ZmJlZmNhYjE4NGMzMjQyOTE3MjkxMjAwOWU5Y2Y3BjsAVA%3D%3D--ccecd3220c9f370d178db5dcc4a7b4c6960d7e11;
+        path=/; HttpOnly
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-17T16%3A29%3A22%2B00%3A00%22%7D;
+        path=/; expires=Sun, 17-Dec-2034 16:29:22 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"project":{"id":59745,"name":"TestProject","devurl":"https://testproject.com","api_key":"jfcsimyis4g9dpybkxsriq","is_active":true,"is_public":null,"members":[],"guests":[]}}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 16:29:22 GMT
+recorded_with: VCR 2.9.3

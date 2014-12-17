@@ -1,6 +1,8 @@
 [![Gem Version](https://badge.fury.io/rb/bugherd_client.svg)](http://badge.fury.io/rb/bugherd_client)
 [![Dependency Status](https://gemnasium.com/jwaterfaucett/bugherd_client.svg)](https://gemnasium.com/jwaterfaucett/bugherd_client)
-[![Build Status](https://travis-ci.org/jwaterfaucett/bugherd_client.svg?branch=master)](https://travis-ci.org/jwaterfaucett/bugherd_client)
+[![Build^ Status](https://travis-ci.org/jwaterfaucett/bugherd_client.svg?branch=master)](https://travis-ci.org/jwaterfaucett/bugherd_client)
+[![Code Climate](https://codeclimate.com/github/jwaterfaucett/bugherd_client/badges/gpa.svg)](https://codeclimate.com/github/jwaterfaucett/bugherd_client)
+[![Coverage Status](https://coveralls.io/repos/jwaterfaucett/bugherd_client/badge.png?branch=master)](https://coveralls.io/r/jwaterfaucett/bugherd_client?branch=master)
 
 
 # BugHerd Client

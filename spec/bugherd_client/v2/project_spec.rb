@@ -61,6 +61,46 @@ describe(BugherdClient::Resources::V2::Project) do
       expect(p1.name).to eq('MyTestProject')
     end
   end
+  context 'create', vcr: { cassette_name: 'projects_create', record: :new_episodes } do
+    it 'should create a project and return it' do
+      payload = {
+        name: 'TestProject',
+        devurl: 'https://testproject.com'
+      }
+      p = client.projects.create(payload)
+      expect(p).to have_key(:id)
+      expect(p).to have_key(:devurl)
+      expect(p).to have_key(:api_key)
+      expect(p).to have_key(:is_public)
+      expect(p).to have_key(:is_active)
+      expect(p).to have_key(:members)
+      expect(p).to have_key(:guests)
 
+      # types
+      expect(p.id).to be_an(Integer)
+      expect(p.members).to  be_an(Array)
+      expect(p.guests).to   be_an(Array)
+    end
+  end
+  context 'update', vcr: { cassette_name: 'projects_update', record: :new_episodes } do
+    it 'should update an existing project and return it' do
+      new_devurl = 'https://example.com'
+      existing_p = client.projects.all.first
+      updated_p = client.projects.update(existing_p.id, {
+        devurl: new_devurl
+      })
+      expect(updated_p.devurl).to eq(new_devurl)
+    end
+  end
+
+  context 'delete', vcr: { cassette_name: 'projects_delete', record: :new_episodes } do
+    it 'should update an existing project and return it' do
+      existing_project_id = 59745
+      existing_p = client.projects.find(existing_project_id)
+      res = client.projects.delete(existing_p.id)
+      expect(res).to have_key(:success)
+      expect(res.success).to eq(true)
+    end
+  end
 
 end
