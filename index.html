@@ -3,121 +3,103 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>Bugherd client by jwaterfaucett</title>
+    <title>Bugherd Client by jwaterfaucett</title>
   </head>
 
   <body>
-    <header>
+    <div id="container">
       <div class="inner">
-        <h1>Bugherd client</h1>
-        <h2>Ruby Client for the Bugherd REST API</h2>
-        <a href="https://github.com/jwaterfaucett/bugherd_client" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
+        <header>
+          <h1>Bugherd Client</h1>
+          <h2>Ruby Client for the BugHerd REST API</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/jwaterfaucett/bugherd_client/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/jwaterfaucett/bugherd_client/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/jwaterfaucett/bugherd_client" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
           <p><a href="http://badge.fury.io/rb/bugherd_client"><img src="https://badge.fury.io/rb/bugherd_client.svg" alt="Gem Version"></a>
 <a href="https://gemnasium.com/jwaterfaucett/bugherd_client"><img src="https://gemnasium.com/jwaterfaucett/bugherd_client.svg" alt="Dependency Status"></a>
 <a href="https://travis-ci.org/jwaterfaucett/bugherd_client"><img src="https://travis-ci.org/jwaterfaucett/bugherd_client.svg?branch=master" alt="Build Status"></a></p>
 
 <h1>
-<a name="bugherd-client" class="anchor" href="#bugherd-client"><span class="octicon octicon-link"></span></a>BugHerd Client</h1>
+<a id="bugherd-client" class="anchor" href="#bugherd-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>BugHerd Client</h1>
 
-<p>This is a Rest Client for the BugHerd API. It fully covers all methods of the v1 and v2 API Implementations.
-Another nifty feature is that its threadsafe so you could potentially have many instances floating around and don't
-have to worry about collisions as is the case with ActiveResource.</p>
+<p>This is a Rest Client for the BugHerd API.</p>
+
+<p><strong>features:</strong></p>
+
+<ul>
+<li>Threadsafe</li>
+<li>Full V1 API support</li>
+<li>Full V2 API support</li>
+</ul>
+
+<p><strong>ruby support:</strong></p>
+
+<ul>
+<li>JRuby</li>
+<li>Rubinius 2+</li>
+<li>MRI &gt;= 1.9.3</li>
+</ul>
 
 <h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
-
-<p>Add this line to your application's Gemfile:</p>
-
-<pre><code>gem 'bugherd_client'
-</code></pre>
-
-<p>And then execute:</p>
-
-<pre><code>$ bundle
-</code></pre>
-
-<p>Or install it yourself as:</p>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <pre><code>$ gem install bugherd_client
 </code></pre>
 
 <h2>
-<a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
 
-<div class="highlight highlight-ruby"><pre>
-<span class="c1"># create a client form an api_key, it will automatically use v2 of the BugHerd API</span>
-<span class="n">client</span> <span class="o">=</span> <span class="no">BugherdClient</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="s1">'someapikey'</span><span class="p">)</span>
+<p>For usage look in the examples folders. Examples are only kept for the latest
+version of the API so if you really want to use older versions you'll have to
+look at the source.</p>
 
-<span class="c1"># Get information about your organization</span>
-<span class="n">client</span><span class="o">.</span><span class="n">organization</span><span class="o">.</span><span class="n">get</span> <span class="c1"># =&gt; returns your organization information</span>
-
-<span class="c1"># Get a list of all users</span>
-<span class="n">all_users</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">all</span> <span class="c1"># =&gt; returns a list of all users</span>
-<span class="n">user</span> <span class="o">=</span> <span class="n">all_users</span><span class="o">.</span><span class="n">first</span>
-
-<span class="c1"># Find a specific project</span>
-<span class="n">project</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">projects</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1023</span><span class="p">)</span>
-
-<span class="c1"># Create a new Task</span>
-<span class="n">task</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span>
-  <span class="ss">description</span><span class="p">:</span> <span class="s1">'This is a description'</span><span class="p">,</span>
-  <span class="n">requester_id</span><span class="p">:</span> <span class="n">user</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span>
-  <span class="ss">status</span><span class="p">:</span> <span class="s1">'backlog'</span><span class="p">,</span>
-  <span class="ss">priority</span><span class="p">:</span> <span class="s1">'normal'</span>
-<span class="p">})</span>
-
-<span class="c1"># Create a comment</span>
-<span class="n">client</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span> <span class="n">task</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span>
-  <span class="ss">text</span><span class="p">:</span> <span class="s1">'hey this is a comment'</span>
-<span class="p">})</span>
-
-</pre></div>
+<ul>
+<li><a href="examples/initialization.rb">Setup</a></li>
+<li><a href="examples/projects.rb">Projects</a></li>
+<li><a href="examples/users_and_organization.rb">Users &amp; Organization</a></li>
+<li><a href="examples/tasks_and_comments.rb">Task &amp; Comments</a></li>
+<li><a href="examples/attachments.rb">Attachments</a></li>
+<li><a href="examples/webhooks.rb">Webhooks</a></li>
+</ul>
 
 <h2>
-<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Please note that all contributions require tests.</p>
 
 <ol>
 <li>Fork it ( <a href="http://github.com/">http://github.com/</a>/bugherd_client/fork )</li>
 <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
 <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
 <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Write some tests.</li>
 <li>Create new Pull Request</li>
 </ol>
         </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/jwaterfaucett/bugherd_client/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/jwaterfaucett/bugherd_client/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+        <footer>
+          Bugherd Client is maintained by <a href="https://github.com/jwaterfaucett">jwaterfaucett</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
 
-          <p class="repo-owner"><a href="https://github.com/jwaterfaucett/bugherd_client"></a> is maintained by <a href="https://github.com/jwaterfaucett">jwaterfaucett</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
+        
       </div>
     </div>
-
-  
   </body>
 </html>
