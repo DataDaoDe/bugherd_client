@@ -5,8 +5,10 @@ support = File.expand_path('../support', __FILE__)
 [lib, support].each { |path| $:.unshift(path) unless $:.include?(path) }
 require 'pry'
 
-# coverage
+require 'coveralls'
 require 'simplecov'
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start do
   add_filter '/spec/'
   add_group  'api_v1', 'bugherd_client/resources/v1'
