@@ -10,11 +10,10 @@ Gem::Specification.new do |spec|
   spec.email         = ['jwaterfaucett@gmail.com']
   spec.summary       = %q{Ruby Client for the Bugherd API}
   spec.description   = %q{Ruby Client for the Bugherd Rest API}
-  spec.homepage      = ''
+  spec.homepage      = 'http://jwaterfaucett.github.io/bugherd_client'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = ['bugherd']
+  spec.files         = `git ls-files -z`.split("\x0").select { |p| !(/examples/ =~ p) }
   spec.test_files    = spec.files.grep(%r{^(spec|features)/})
   spec.require_paths = ['lib']
 
@@ -22,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'hashie', '~> 2.1'
   spec.add_dependency 'activesupport', '> 3.0', '< 5.0'
 
-  spec.add_development_dependency 'bundler', '~> 1.5'
+  spec.add_development_dependency 'bundler', '>= 1.5'
   spec.add_development_dependency 'rspec', '>= 3'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'webmock', '~> 1.20'
