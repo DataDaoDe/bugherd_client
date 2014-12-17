@@ -103,4 +103,33 @@ describe(BugherdClient::Resources::V2::Project) do
     end
   end
 
+  context 'add_guests', vcr: { cassette_name: 'projects_add_guest', record: :new_episodes } do
+    it 'should add an existing guest to a project' do
+      p = client.projects.all.first
+      g = client.users.guests.first
+      res = client.projects.add_guest(p.id, user_id: g.id )
+      expect(res).to have_key(:id)
+      expect(res).to have_key(:guests)
+      expect(res.guests).to be_an(Array)
+
+      new_g = res.guests.select { |gs| gs.id == g.id }.first
+      expect(new_g).to_not be_nil
+    end
+  end
+
+  context 'add_member', vcr: { cassette_name: 'projects_add_member', record: :new_episodes } do
+    let(:project_id) { 40093 }
+    let(:member_id) { 50194 }
+
+    it 'should add a member to a project' do
+      res = client.projects.add_member(project_id, user_id: member_id )
+      expect(res).to have_key(:id)
+      expect(res).to have_key(:members)
+      expect(res.guests).to be_an(Array)
+
+      new_m = res.members.select { |mm| mm.id == member_id }.first
+      expect(new_m).to_not be_nil
+    end
+  end
+
 end

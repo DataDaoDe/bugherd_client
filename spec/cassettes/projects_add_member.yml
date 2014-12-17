@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://testing:x@www.bugherd.com/api_v2/projects/40093/add_member
+    body:
+      encoding: US-ASCII
+      string: user_id=50194&content_type=json&accept=json
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '43'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 17 Dec 2014 17:05:00 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 4449acb1e580d8a5822699e54dfec43d
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.150719'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"08e70b33fb011bcd82eefce7f2977d2e"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=E1227771D62C08D6CA46945339FEFF4D; path=/
+      - _bugherd_session3=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJWVlZDEyODQ1NGNhYmRhZjliYWYxYTUzNzkyYzUxMGFkBjsAVA%3D%3D--9f6f02f544e86da62c036ef37f86083e2b1ed12a;
+        path=/; HttpOnly
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%2F40093%2Fadd_member%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-17T17%3A05%3A00%2B00%3A00%22%7D;
+        path=/; expires=Sun, 17-Dec-2034 17:05:00 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"project":{"id":40093,"name":"MyTestProject","devurl":"https://example.com","api_key":"6oz4wx52erigdpckz5blag","is_active":true,"is_public":null,"members":[{"id":50194,"email":"jan.schwenzien@testcloud.de","display_name":"Jan
+        Schwenzien","avatar_url":"https://www.bugherd.com/images/sidebar/avatar-generic.png"},{"id":50190,"email":"john.faucett@testcloud.de","display_name":"John
+        Faucett","avatar_url":"https://www.bugherd.com/images/sidebar/avatar-generic.png"}],"guests":[{"id":50536,"email":"tilman.bahls@testcloud.de","display_name":"tilman.bahls@testcloud.de","avatar_url":"https://bugherd-attachments.s3.amazonaws.com/zpyio6vsupbtvt82ofjx6w%2Favatar.png"}]}}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 17:05:00 GMT
+recorded_with: VCR 2.9.3

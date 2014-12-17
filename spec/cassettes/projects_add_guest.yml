@@ -1,0 +1,192 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing:x@www.bugherd.com/api_v2/projects
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 17 Dec 2014 16:55:46 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - cb04ba25db4876a1bd7fff33626f94bb
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.027730'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"58419ca1a3a9f7cb3ceeea57f25af6b8"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=1E758C009836F053015B6438BA84600D; path=/
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-17T16%3A55%3A46%2B00%3A00%22%7D;
+        path=/; expires=Sun, 17-Dec-2034 16:55:46 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"projects":[{"id":40093,"name":"MyTestProject"},{"id":40420,"name":"how
+        to be cool"}],"meta":{"count":2}}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 16:55:46 GMT
+- request:
+    method: get
+    uri: https://testing:x@www.bugherd.com/api_v2/users/guests
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - miss
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 17 Dec 2014 16:55:47 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - fbce75ac92bf0bab336e53d099732be9
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.206785'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"e408b3684383aaaccd5350fe2fed42a5"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=E1227771D62C08D6CA46945339FEFF4D; path=/
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fusers%2Fguests%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-17T16%3A55%3A47%2B00%3A00%22%7D;
+        path=/; expires=Sun, 17-Dec-2034 16:55:47 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"users":[{"id":50536,"email":"tilman.bahls@testcloud.de","display_name":"tilman.bahls@testcloud.de","avatar_url":"https://bugherd-attachments.s3.amazonaws.com/zpyio6vsupbtvt82ofjx6w%2Favatar.png"}],"meta":{"count":1}}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 16:55:47 GMT
+- request:
+    method: post
+    uri: https://testing:x@www.bugherd.com/api_v2/projects/40093/add_guest
+    body:
+      encoding: US-ASCII
+      string: user_id=50536&content_type=json&accept=json
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '43'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 17 Dec 2014 16:55:48 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - e2aefeaf5ee8f610fdea2d6b10017485
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.127939'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"5f81b0ad6c7835ae3f37b459db889a7f"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=DD63644E825132555253BC41B9F2C6C0; path=/
+      - _bugherd_session3=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJTg1OTk3MjQ3ZGFhYWFkMjEwYjgwZDk2ZjdmOTA0Y2E0BjsAVA%3D%3D--1efac6416b01ac5bbfba30c5db360150cbcfaaa9;
+        path=/; HttpOnly
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%2F40093%2Fadd_guest%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-17T16%3A55%3A48%2B00%3A00%22%7D;
+        path=/; expires=Sun, 17-Dec-2034 16:55:48 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"project":{"id":40093,"name":"MyTestProject","devurl":"https://example.com","api_key":"6oz4wx52erigdpckz5blag","is_active":true,"is_public":null,"members":[{"id":50190,"email":"john.faucett@testcloud.de","display_name":"John
+        Faucett","avatar_url":"https://www.bugherd.com/images/sidebar/avatar-generic.png"}],"guests":[{"id":50536,"email":"tilman.bahls@testcloud.de","display_name":"tilman.bahls@testcloud.de","avatar_url":"https://bugherd-attachments.s3.amazonaws.com/zpyio6vsupbtvt82ofjx6w%2Favatar.png"}]}}'
+    http_version:
+  recorded_at: Wed, 17 Dec 2014 16:55:48 GMT
+recorded_with: VCR 2.9.3

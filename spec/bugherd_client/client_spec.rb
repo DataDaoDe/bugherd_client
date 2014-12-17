@@ -47,6 +47,7 @@ describe(BugherdClient::Client) do
       expect(RestClient.log).to eq(nil)
       client = BugherdClient::Client.new(api_key: 'apikey', debug: true)
       expect(RestClient.log.level).to eq(Logger::DEBUG)
+      RestClient.log = nil
     end
   end
 

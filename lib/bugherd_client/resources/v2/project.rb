@@ -61,7 +61,7 @@ module BugherdClient
         # API: 2
         def add_guest(project_id, attributes={})
           raw_response = post_request("projects/#{project_id}/add_guest", attributes)
-          parse_response(raw_response)
+          parse_response(raw_response, :project)
         end
 
         #
@@ -71,7 +71,7 @@ module BugherdClient
         #
         def add_member(project_id, attributes={})
           raw_response = post_request("projects/#{project_id}/add_member", attributes)
-          parse_response(raw_response)
+          parse_response(raw_response, :project)
         end
 
 
