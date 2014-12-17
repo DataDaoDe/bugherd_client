@@ -3,6 +3,11 @@ module BugherdClient
     module V2
       class Webhook < Base
 
+        EVENTS = ['task_create', 'task_update', 'task_destroy', 'comment']
+        def events
+          self.class::EVENTS
+        end
+
         # LIST
         #
         # Get a list of currently installed webhooks.

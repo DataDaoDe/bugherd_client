@@ -1,4 +1,7 @@
-# Notes: your will need to set your bugherd API_KEY as an ENV variable
+# Notes: you will need to set your bugherd API_KEY as an ENV variable
+# and you will need to sleep for 3 seconds between each request
+# unless you contact BugHerd and get a token to avoid the rate limiting
+# but only do this if you really need to make lots of requests for some reason.
 
 $:.unshift File.expand_path('../../lib', __FILE__)
 

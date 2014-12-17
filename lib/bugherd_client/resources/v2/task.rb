@@ -6,9 +6,15 @@ module BugherdClient
 
         PRIORITIES = ['not set', 'critical', 'important', 'normal','minor']
         PRIORITIES.each { |p| Task.const_set("PRIORITY_#{p.gsub(' ', '').upcase}", p) }
+        def priorities
+          self.class::PRIORITIES
+        end
 
-        STATUSES   = ['backlog','todo','doing','done','closed']
+        STATUSES = ['backlog','todo','doing','done','closed']
         STATUSES.each { |s| Task.const_set("STATUS_#{s.upcase}", s) }
+        def statuses
+          self.class::STATUSES
+        end
 
         VALID_QUERY_KEYS = [:page, :updated_since, :created_since, :status, :priority, :assigned_to_id, :external_id]
 

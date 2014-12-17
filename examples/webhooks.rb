@@ -7,18 +7,23 @@ $:.unshift File.expand_path('../../lib', __FILE__)
 
 require 'bugherd_client'
 
+
 # setup bugherd and use the latest version of the api
 client = BugherdClient::Client.new(api_key: ENV['API_KEY'])
 
-client = BugherdClient::Client.new(
-  api_key: ENV['API_KEY'],
-  api_version: 1, # use another version of the api
-  api_rate_limiting_token: 'token', # set to avoid api rate limiting - contact bugherd
-  debug: true, # debug http request/response cycles
-)
+# get all webhooks
+client.webhooks.all
 
-# using block syntax
-client = BugherdClient::Client.new do |c|
-  c.username = 'theuser'
-  c.password = 'thepass'
-end
+# get a list of available webhook event types
+events = client.webhooks.events
+
+# create a new webhook
+p = client.projects.all.first
+new_webhook = client.webhooks.create({
+  project_id: p.id, # this is optional
+  event: 'create_task',
+  target_url: 'https://someurl.com'
+})
+
+# delete a webhook
+client.webhooks.delete(new_webhook.id)
