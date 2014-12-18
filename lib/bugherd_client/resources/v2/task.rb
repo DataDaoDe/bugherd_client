@@ -56,12 +56,12 @@ module BugherdClient
         # External ID is an API-only field. It cannot be set from the BugHerd application, only using the API. An external ID can be used to track originating IDs from other systems in BugHerd bugs.
         def create(project_id, attributes={})
           raw_response = post_request("projects/#{project_id}/tasks", task: attributes)
-          parse_response(raw_response)
+          parse_response(raw_response, :task)
         end
 
         def update(project_id, task_id, attributes={})
           raw_response = put_request("projects/#{project_id}/tasks/#{task_id}", task: attributes)
-          parse_response(raw_response)
+          parse_response(raw_response, :task)
         end
 
         private

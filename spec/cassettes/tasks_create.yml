@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://testing:x@www.bugherd.com/api_v2/projects/40093/tasks
+    body:
+      encoding: US-ASCII
+      string: task[status]=backlog&task[description]=A%20Test%20Task%20for%20Testing%20Tests&task[priority]=normal&task[requester_id]=50190&content_type=json&accept=json
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '155'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 18 Dec 2014 11:51:36 GMT
+      Status:
+      - 201 Created
+      X-Request-Id:
+      - fc9550c18e1242226fe04f3373116282
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.430175'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"7a7170e2625f5a0af24dd7e9984d9ec7"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=E1227771D62C08D6CA46945339FEFF4D; path=/
+      - _bugherd_session3=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJWMzYjAwNTgzY2Y1MDAzZTYzYTc5NmUyZmYwZWRiYTMxBjsAVA%3D%3D--5d552c2e9ecddfed5970e9bf065d1b005f62d874;
+        path=/; HttpOnly
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%2F40093%2Ftasks%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-18T11%3A51%3A35%2B00%3A00%22%7D;
+        path=/; expires=Mon, 18-Dec-2034 11:51:35 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"task":{"id":1734828,"project_id":40093,"created_at":"2014-12-18T11:51:36Z","updated_at":"2014-12-18T11:51:36Z","local_task_id":13,"priority_id":3,"status_id":0,"description":"A
+        Test Task for Testing Tests","tag_names":[],"external_id":null,"requester_email":"john.faucett@testcloud.de","attachments":[],"screenshot_url":null,"status":"backlog","priority":"normal","closed_at":null,"secret_link":"http://www.bugherd.com/t/uPp1qeKA0ATUeZsKx0b2Xg","admin_link":"http://www.bugherd.com/projects/40093/tasks/13","deleted_at":null,"site":null,"url":null,"metadata":null,"screenshot_data":null,"requester_os":null,"requester_browser":null,"requester_browser_size":null,"requester_resolution":null,"selector_info":"{}","assigned_to":null,"requester":{"id":50190,"email":"john.faucett@testcloud.de","display_name":"John
+        Faucett","avatar_url":"https://www.bugherd.com/images/sidebar/avatar-generic.png"},"updater":null}}'
+    http_version:
+  recorded_at: Thu, 18 Dec 2014 11:51:36 GMT
+recorded_with: VCR 2.9.3

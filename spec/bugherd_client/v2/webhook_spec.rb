@@ -8,6 +8,15 @@ describe(BugherdClient::Resources::V2::Organization) do
     client = BugherdClient::Client.new(api_key: 'testing')
   end
 
+  context 'events' do
+    it 'should return a list of available webhook events' do
+      event_list = client.webhooks.events
+      ['task_create', 'task_update', 'task_destroy', 'comment'].each do |e|
+        expect(event_list).to include(e)
+      end
+    end
+  end
+
   context 'all', vcr: { cassette_name: "webhooks_all", record: :new_episodes } do
 
     it 'should return a list of webhooks' do

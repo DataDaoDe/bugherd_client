@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://testing:x@www.bugherd.com/api_v2/projects/40093/tasks/1035995
+    body:
+      encoding: US-ASCII
+      string: task[status]=doing&content_type=json&accept=json
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '48'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 18 Dec 2014 11:46:58 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 3807d7c48ee4e6fe6bc9f87a8703b148
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.272197'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"407998bb3b0ca8474f5a3d2a0db4bae7"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=E1227771D62C08D6CA46945339FEFF4D; path=/
+      - _bugherd_session3=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJTE5ZTRkMzYzZWI1MmE5NmE5MzMzMDc1YmY3MzIwN2Y1BjsAVA%3D%3D--ee9332d971dcc75e224a0b9b97118613b5cceceb;
+        path=/; HttpOnly
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fprojects%2F40093%2Ftasks%2F1035995%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-18T11%3A46%3A57%2B00%3A00%22%7D;
+        path=/; expires=Mon, 18-Dec-2034 11:46:57 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"task":{"id":1035995,"project_id":40093,"created_at":"2014-05-08T07:53:00Z","updated_at":"2014-12-18T11:46:57Z","local_task_id":5,"priority_id":2,"status_id":2,"description":"testCloud
+        ID: #10821\nApp Section: Produktdetailseite Vollbildansicht der Produkte\nURL:
+        www.testcloud.de/demobug\n\nDies ist ein Demo-Bug aus dem testCloud System.
+        Wenn Sie diesen Bug sehen, wurde die Export-Schnittstelle zu Ihrem Bugtracker
+        erfolgreich implementiert und ist einsatzbereit.\n\n* http://devuploads.testcloud.de:3000/uploads/bug_attachment/file/30642/cf54ff14-83e4-5a53-821b-b22a11a822c8.png\n\n","tag_names":[],"external_id":"testcloudClient","requester_email":null,"attachments":[{"id":146150,"name":null,"url":"https://bugherd-attachments.s3.amazonaws.com/brps6nxuwrzh1xgdkhwnza/"},{"id":146149,"name":"resolution.gif","url":"https://bugherd-attachments.s3.amazonaws.com/kayaszjnhljhr3bkgtfc3a/resolution.gif"},{"id":146142,"name":"resolution.gif","url":"http://i.imgur.com/U9h3jZI.gif"}],"screenshot_url":null,"status":"doing","priority":"important","closed_at":null,"secret_link":"http://www.bugherd.com/t/KGMMgQEZ9yzKOUucNXHjZQ","admin_link":"http://www.bugherd.com/projects/40093/tasks/5","deleted_at":null,"site":null,"url":null,"metadata":null,"screenshot_data":null,"requester_os":null,"requester_browser":null,"requester_browser_size":null,"requester_resolution":null,"selector_info":"{}","assigned_to":null,"requester":null,"updater":{"id":50190,"email":"john.faucett@testcloud.de","display_name":"John
+        Faucett","avatar_url":"https://www.bugherd.com/images/sidebar/avatar-generic.png"}}}'
+    http_version:
+  recorded_at: Thu, 18 Dec 2014 11:46:58 GMT
+recorded_with: VCR 2.9.3
