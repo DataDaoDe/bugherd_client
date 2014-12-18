@@ -8,6 +8,15 @@ describe(BugherdClient::Resources::V2::Project) do
   end
   let(:project_id) { 40093 }
 
+  context 'api_methods' do
+    it 'should list available api_methods' do
+      t = client.tasks
+      [:priorities, :statuses, :all, :find, :create, :update].each do |public_method|
+        expect(t.api_methods).to include(public_method)
+      end
+    end
+  end
+
   context 'priorities' do
     it 'should return a list of available task priorities' do
       priorities = client.tasks.priorities
@@ -23,6 +32,14 @@ describe(BugherdClient::Resources::V2::Project) do
       ['backlog','todo','doing','done','closed'].each do |s|
         expect(statuses).to include(s)
       end
+    end
+  end
+
+  context 'filter_querying' do
+    it 'should raise an error for invalid filter queries' do
+      expect {
+        client.tasks.all(project_id, { foo: 'whatever' })
+      }.to raise_error(BugherdClient::Errors::InvalidQueryKey)
     end
   end
 
