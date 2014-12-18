@@ -17,4 +17,31 @@ describe(BugherdClient::Resources::V2::Organization) do
 
   end
 
+  context 'create', vcr: { cassette_name: "webhooks_create", record: :new_episodes } do
+
+    it 'should create new webhook' do
+      payload = { target_url: 'https://www.example.comfoocom.io', event: 'task_create' }
+      response = client.webhooks.create(payload)
+
+      expect(response).to have_key(:id)
+      expect(response).to have_key(:target_url)
+      expect(response).to have_key(:event)
+      expect(response).to have_key(:success_count)
+      expect(response).to have_key(:project_id)
+    end
+
+  end
+
+
+  context 'create', vcr: { cassette_name: "webhooks_delete", record: :new_episodes } do
+    let(:webhook_id) { 4141 }
+
+    it 'should delete an existing webhook' do
+      response = client.webhooks.delete(webhook_id)
+
+      expect(response).to         have_key(:success)
+      expect(response.success).to eq(true)
+    end
+
+  end
 end

@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://testing:x@www.bugherd.com/api_v2/webhooks/4141
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 18 Dec 2014 11:31:37 GMT
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 2a1f906da1be0877a1e1b0d06b17150a
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.262089'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"7363e85fe9edee6f053a4b319588c086"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=E1227771D62C08D6CA46945339FEFF4D; path=/
+      - _bugherd_session3=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJWUwZDEyZGZiYjBhYWRjNGJiYjBhMjY4OTU2ODRmZTdmBjsAVA%3D%3D--6e6ce867b97f064fc3943a648c43a3bdab79d217;
+        path=/; HttpOnly
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fwebhooks%2F4141%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-18T11%3A31%3A37%2B00%3A00%22%7D;
+        path=/; expires=Mon, 18-Dec-2034 11:31:37 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"success":true}'
+    http_version:
+  recorded_at: Thu, 18 Dec 2014 11:31:38 GMT
+recorded_with: VCR 2.9.3

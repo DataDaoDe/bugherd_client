@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://testing:x@www.bugherd.com/api_v2/webhooks
+    body:
+      encoding: US-ASCII
+      string: target_url=https%3A%2F%2Fwww.example.comfoocom.io&event=task_create&content_type=json&accept=json
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '97'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 18 Dec 2014 11:29:07 GMT
+      Status:
+      - 201 Created
+      X-Request-Id:
+      - e25437b3265d63a56912b1bac56e8fd7
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      X-Runtime:
+      - '0.117996'
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - '"fdae1793210ce283c5a05ce683e26732"'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - X-Mapping-fjhppofk=1E758C009836F053015B6438BA84600D; path=/
+      - _bugherd_session3=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJWNhN2E4YWMwMWI3ZTdhNjdmMWI1YTdiNDZhYzQyYTVkBjsAVA%3D%3D--cec15b7070e8398c5122abc1502df43c9905a2e5;
+        path=/; HttpOnly
+      - landing=%7B%22utm_source%22%3Anull%2C%22utm_medium%22%3Anull%2C%22utm_campaign%22%3Anull%2C%22utm_term%22%3Anull%2C%22utm_content%22%3Anull%2C%22path%22%3A%22%2Fapi_v2%2Fwebhooks%22%2C%22referer%22%3Anull%2C%22remote_ip%22%3A%2290.156.0.165%22%2C%22time%22%3A%222014-12-18T11%3A29%3A07%2B00%3A00%22%7D;
+        path=/; expires=Mon, 18-Dec-2034 11:29:07 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      X-Powered-By:
+      - cloud66
+    body:
+      encoding: UTF-8
+      string: '{"webhook":{"id":4141,"target_url":"https://www.example.comfoocom.io","event":"task_create","project_id":null,"success_count":null}}'
+    http_version:
+  recorded_at: Thu, 18 Dec 2014 11:29:07 GMT
+recorded_with: VCR 2.9.3
