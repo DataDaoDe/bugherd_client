@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rest-client', '~> 1.6'
+  spec.add_dependency 'rest-client', '>= 1.7'
   spec.add_dependency 'hashie', '~> 3.0'
   spec.add_dependency 'activesupport', '> 3.0', '< 5.0'
 
